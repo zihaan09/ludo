@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Ludo</title>
+
+<style>
+#ludo
+{position:absolute;
+top: 10px;
+left:26%;
+
+}
+#dieinput
+{
+ text-align:center;
+
+
+}
+#b1{
+text-align:center;
+font-size:35px;
+
+
+}
+#demo{
+text-align:center;
+border:1px solid black;
+position:relative;
+top:-17px;
+width:172px;
+
+
+
+
+}
+#b3
+{
+ position:absolute;
+ left:310%;
+ top:80px;
+ border:1px solid black;
+ width:200px;
+ text-align:center;
+ font-size:15px;
+ 
+
+
+}
+.matrix{ 
+ height :70px;
+ width:70px;
+ border:1px solid black;
+ 
+ text-align:center;
+ 
+}
+#top{position:absolute;
+left:10px;
+top:8.5px;
+}
+#top1{position:absolute;
+    
+     left:80px;
+	 top:8.5px;
+	
+}
+#L21{position:absolute;
+   top:504px;
+}
+#top2{position:absolute;
+    
+     left:150px;
+	 top:8.5px;
+	
+}
+#L20{position:absolute;
+   top:504px;
+}
+#top3{position:absolute;
+    
+     left:220px;
+	 top:8.5px;
+	
+}
+#L19{position:absolute;
+   top:504px;
+}
+#top4{position:absolute;
+    
+     left:290px;
+	 top:8.5px;
+	
+}
+#L18{position:absolute;
+   top:504px;
+}
+#top5{position:absolute;
+    
+     left:360px;
+	 top:8.5px;
+	
+}
+#L17{position:absolute;
+   top:504px;
+}
+#top6{position:absolute;
+    
+     left:430px;
+	 top:8.5px;
+	
+}
+#L16{position:absolute;
+   top:504px;
+}
+#top7{position:absolute;
+    
+     left:500px;
+	 top:8.5px;
+	
+}
+#button1{position:relative;
+   left:200px;
+   top:200px;
+}
+#L1{background-color:red;
+}
+#L28{background-color:rgb(180,0,0);
+}
+#L15{background-color:rgb(0,0,180);
+}
+#L14{background-color:blue;
+}
+#b2{position:relative;
+   left:-250px;
+   top:-150px;
+   text-align:center;
+   border:1px solid black;
+   width:200px;
+}
+
+#q1{position:absolute;
+  top:80px;
+  left:220px;
+  display:none;
+}
+#q2{position:absolute;
+  top:80px;
+  left:220px;
+  display:none;
+}
+#q3{position:absolute;
+  top:80px;
+  left:220px;
+  display:none;
+}
+#q4{position:absolute;
+  top:80px;
+  left:220px;
+  display:none;
+}
+#q5{position:absolute;
+  top:80px;
+  left:220px;
+  display:none;
+}
+#q6{position:absolute;
+  top:80px;
+  left:160px;
+  display:none;
+}
+#q7{position:absolute;
+  top:80px;
+  left:160px;
+  display:none;
+}
+#belgium
+{
+ text-align:center;
+ border:1px solid black;
+ width:173px;
+
+
+}
+</style>
+
+</head>
+<body>
+<div  id ="ludo" >
+<div id ="top">
+
+<div id="L1" class ="matrix"><p id ="q">  </p></div>
+<div id="L28" class ="matrix"> </div>
+<div id="L27" class ="matrix"> </div>
+<div id="L26" class ="matrix"> </div>
+<div id="L25" class ="matrix"> </div>
+<div id="L24" class ="matrix"> </div>
+<div id="L23" class ="matrix"> </div>
+<div id="L22" class ="matrix"> </div>
+
+</div>
+<div id ="top1">
+<div id="L2" class ="matrix"> </div>
+<div id="L21" class ="matrix"> </div>
+</div>
+<div id ="top2">
+<div id="L3" class ="matrix"> </div>
+<div id="L20" class ="matrix"> </div>
+</div>
+<div id ="top3">
+<div id="L4" class ="matrix"> </div>
+<div id="L19" class ="matrix"> </div>
+</div>
+<div id ="top4">
+<div id="L5" class ="matrix"> </div>
+<div id="L18" class ="matrix"> </div>
+</div>
+<div id ="top5">
+<div id="L6" class ="matrix"> </div>
+<div id="L17" class ="matrix"> </div>
+</div>
+<div id ="top6">
+<div id="L7" class ="matrix"> </div>
+<div id="L16" class ="matrix"> </div>
+</div>
+<div id ="top7">
+<div id="L8" class ="matrix"> </div>
+<div id="L9" class ="matrix"> </div>
+<div id="L10" class ="matrix"> </div>
+<div id="L11" class ="matrix"> </div>
+<div id="L12" class ="matrix"> </div>
+<div id="L13" class ="matrix"> </div>
+<div id="L14" class ="matrix"> </div>
+<div id="L15" class ="matrix"><p id ="w"> </p> </div>
+</div>
+
+<div id="button1">
+<p id ="b1">Turn a</p><br>
+<button  id ="belgium" onclick="roll()">ROLL</button><br>
+<input type = "number" id ="dieinput">
+<p id="demo">result</p>
+</div>
+<div id ="b2"><h1>LOCKER A</h1></br><p id ="p1"></p></div>
+<div id ="b3"><h1>LOCKER B</h1></br><p  id ="p2" ></p></div>
+
+
+
+<div id ="q1" ><p>  get a2 out  or move a1?  type a2 or a1</p><input id ="q1in"><br><button id ="but1" onclick="decide()">submit</button></div>
+<div id ="q2" ><p>  move a2   or move a1? type a2 or a1</p><input id ="q2in"><br><button id ="but2" onclick="decide2()">submit</button></div>
+<div id ="q3" ><p>  get b2 out  or move b1?  type b2 or b1</p><input id ="q3in"><br><button id ="but3" onclick="decide1()">submit</button></div>
+<div id ="q4" ><p>  move b2  or move b1?  type b2 or b1</p><input id ="q4in"><br><button id ="but4" onclick="decide3()">submit</button></div>
+<div id ="q5" ><p> get a1 out  or move a2?  type a2 or a1</p><input id ="q5in"><br><button id ="but5" onclick="decide4()">submit</button></div>
+<div id ="q6" ><p> get b1 out  or move b2?  type b2 or b1</p><input id ="q6in"><br><button id ="but6" onclick="decide5()">submit</button></div>
+<div id ="q7" ><p>you need exact value to finish</p></div>
+</div>
+
+<script>
+</script>
+
+
+<script>
+var k=0;
+var d =0;
+var h =0;
+var g=0;
+var t=0;
+var u =0;
+var aleft = 2;
+var bleft = 2;
+var player = "A";
+var x;
+var posa1 =0;
+var posa2=0; 
+var posb1=0;
+var posb2=0;
+var remtoken="A1";
+var remtoken2="B1";
+var tokenaout="";
+var tokenbout="";
+var aout=0;
+var bout=0;
+var diceInput = document.getElementById("dieinput");
+ var displaya=document.getElementById("p1");
+ var displayb=document.getElementById("p2");
+ displaya.innerHTML=aleft;
+ displayb.innerHTML=bleft;
+  function decide5()
+{
+ if(document.getElementById("q6in").value=="b2") {
+        k =2;
+    }
+	else if(document.getElementById("q6in").value=="b1"){
+	    k =3;
+	}
+    release("B", x);
+}
+ function decide4()
+{
+ if(document.getElementById("q5in").value=="a2") {
+        d =2;
+    }
+	else if(document.getElementById("q5in").value=="a1"){
+	    d =3;
+	}
+    release("A", x);
+}
+function decide3()
+{
+ if(document.getElementById("q4in").value=="b1") {
+        h =2;
+    }
+	else if(document.getElementById("q4in").value=="b2"){
+	    h =3;
+	}
+    release("B", x);
+}
+function decide2()
+{
+ if(document.getElementById("q2in").value=="a1") {
+        t =2;
+    }
+	else if(document.getElementById("q2in").value=="a2"){
+	    t =3;
+	}
+    release("A", x);
+}
+function decide1(){ 
+    if(document.getElementById("q3in").value=="b1") {
+        g =2;
+    }
+	else if(document.getElementById("q3in").value=="b2"){
+	    g =3;
+	}
+    release("B", x);
+}
+function decide(){ 
+    if(document.getElementById("q1in").value=="a1") {
+        u =2;
+    }
+	else if(document.getElementById("q1in").value=="a2"){
+	    u =3;
+	}
+    release("A", x);
+}
+function movetoken(_player,token,q)
+{ 
+   if(_player=="A"&&token=="A1")
+   {
+    document.getElementById('L'+posa1).innerHTML="";
+    posa1=posa1+Number(q);
+	if((aout==1)&&(q!=6)&&(posb1!=posa1)&&(posb2!=posa1))
+	 { document.getElementById('L'+posa1).innerHTML="a1";
+	   change("A");
+	   changename("A");
+	   
+	 }
+	if(posa1>28)
+	{
+       document.getElementById('q7').style.display="block";
+	  
+	  posa1=posa1-Number(q);
+	    document.getElementById('L'+posa1).innerHTML="a1";
+	  
+	  }
+	  
+	  else if(posa1==28)
+	  
+	   	{
+	
+	 posa1= -1;
+	 aout=aout+1;
+	 if(posb1==28&&posb2==28)
+	 {
+	 bleft=2;
+	 remtoken2="B1";
+	 posb1=0;
+	 posb2=0;
+	 }
+	 if(posb1==28&&posb2!=28)
+	 {
+	 posb1=0;
+	 bleft++;
+	 remtoken2="B1";
+	 
+	 }
+	 if(posb2==28&&posb1!=28)
+	 {
+	 posb2=0;
+	 bleft++;
+	 if(bleft==2)
+	 {
+	 remtoken2="B1";
+	 
+	 }
+	 else
+	 remtoken2=="B2";
+	 
+	 }
+	 
+	 
+	 
+	 document.getElementById('L28').innerHTML="";
+	 tokenaout="A1";
+	 if(aleft==1)
+	 {aleft=1;}
+	 else
+	 {aleft=0;}
+	 
+	 if(aout==2)
+	 {
+	   alert("A WINS");
+	 }
+	 }
+	 
+	 
+	
+	
+	
+	
+	  
+	  
+	  
+	  else
+	  {
+	
+	if((posa1!=posa2)&&(posa1!=posb1)&&(posa1!=posb2)&&(posa2!=-1)&&(posa2!=0))
+	{
+	 document.getElementById('L'+posa1).innerHTML="a1 ";
+   document.getElementById('L'+posa2).innerHTML="a2 ";
+	}
+ 
+    else if(posa1 == posa2)
+   { 
+    aleft=0;
+   document.getElementById('L'+posa1).innerHTML="a1 , a2";
+   document.getElementById('L'+posa2).innerHTML="a1 , a2";
+   }
+   else if(posa1==posb1)
+   { 
+     if(posa1==posb2)
+	 {
+	 posb2=0;
+	 posb1=0;
+     bleft=2;
+     remtoken2="B1";
+     document.getElementById('L'+posa1).innerHTML="a1 ";
+	 if(posa2!=-1&&posa2!=0)
+	 {
+	  document.getElementById('L'+posa2).innerHTML="a2 ";
+	 }
+	 }
+   
+     else{
+     posb1=0;
+     bleft=bleft+1;
+	 if(bleft==2)
+	 {
+     remtoken2="B1";}
+	 else
+	 {
+	 remtoken2="B1";
+	 }
+     document.getElementById('L'+posa1).innerHTML="a1 ";
+	  if(posa2!=-1&&posa2!=0)
+	 {
+	  document.getElementById('L'+posa2).innerHTML="a2 ";
+	 }
+ 
+                 }
+				 }
+				 
+	else if(posa1==posb2)
+	{
+	if(posa1==posb1)
+	{
+	posb1=0;
+	posb2=0;
+	bleft=2;
+	remtoken2="B1";
+	document.getElementById('L'+posa1).innerHTML="a1 ";
+	}
+	else{
+	posb2=0;
+	bleft=bleft+1;
+	if(bleft==2)
+	{
+	remtoken2="B1";}
+	if(bleft==1)
+	{
+	remtoken2="B2";
+	
+	}
+	document.getElementById('L'+posa1).innerHTML="a1 ";
+	  if(posa2!=-1&&posa2!=0)
+	 {
+	  document.getElementById('L'+posa2).innerHTML="a2 ";
+	 }
+	
+	
+	}
+	
+	
+	}
+	
+	
+	else 
+	
+	{
+	 document.getElementById('L'+posa1).innerHTML="a1";
+	 
+	 
+	 }
+	 
+	 
+	 
+	
+	}
+	if((aout==1)&&(q!=6)&&(posb1!=posa1)&&(posb2!=posa1))
+	 { document.getElementById('L'+posa1).innerHTML="a1";
+	   change("A");
+	   changename("A");
+	   
+	 }
+ 
+ 
+ }
+ 
+   if(_player=="A"&&token=="A2")
+   { document.getElementById('L'+posa2).innerHTML="";
+     posa2=posa2+Number(q);
+   if(posa2>28)
+	{
+       document.getElementById('q7').style.display="block";
+	  
+	  posa2=posa2-Number(q);
+	    document.getElementById('L'+posa2).innerHTML="a2";
+	  
+	  }
+	  
+	  	  else if(posa2==28)
+	  
+	   	{
+	
+	 posa2=-1;
+	 aout=aout+1;
+	 if(posb1==28&&posb2==28)
+	 {
+	 bleft=2;
+	 remtoken2="B1";
+	 posb1=0;
+	 posb2=0;
+	 }
+	 if(posb1==28&&posb2!=28)
+	 {
+	 posb1=0;
+	 bleft++;
+	 remtoken2="B1";
+	 
+	 }
+	 if(posb2==28&&posb1!=28)
+	 {
+	 posb2=0;
+	 bleft++;
+	 if(bleft==2)
+	 {
+	 remtoken2="B1";
+	 
+	 }
+	 else
+	 remtoken2=="B2";
+	 
+	 }
+	 
+	 
+	 
+	 document.getElementById('L28').innerHTML="";
+	 tokenaout="A2";
+	 if(aleft==1)
+	 {aleft=1;}
+	 else
+	 {aleft=0;}
+	 
+	 if(aout==2)
+	 {
+	   alert("A WINS");
+	 }
+	 }
+	 else
+	 {
+    if((posa1!=posa2)&&(posa2!=posb1)&&(posa2!=posb2)&&(posa1!=0)&&posa1!=-1)
+	{
+	 document.getElementById('L'+posa1).innerHTML="a1 ";
+   document.getElementById('L'+posa2).innerHTML="a2 ";
+	}
+   
+ 
+   else  if(posa1 == posa2)
+   { 
+    aleft=0;
+   document.getElementById('L'+posa1).innerHTML="a1 , a2";
+   document.getElementById('L'+posa2).innerHTML="a1 , a2";
+   }
+   else if(posa2==posb1)
+   { 
+     if(posa2==posb2)
+	 {
+	 posb2=0;
+	 posb1=0;
+     bleft=2;
+     remtoken2="B1";
+	 	if(posa1!=-1&&posa1!=0)
+		{
+		    document.getElementById('L'+posa1).innerHTML="a1 ";
+		
+		}
+     document.getElementById('L'+posa2).innerHTML="a2 ";
+	 }
+   
+     else{
+     posb1=0;
+     bleft=bleft+1;
+	 if(bleft==2)
+	 {
+     remtoken2=="B1";}
+	 else
+	 {
+	 remtoken2="B1";
+	 }
+	 if(posa1!=-1&&posa1!=0)
+		{
+		    document.getElementById('L'+posa1).innerHTML="a1 ";
+		
+		}
+     document.getElementById('L'+posa2).innerHTML="a2 ";
+ 
+                 }
+				 }
+				 
+	else if(posa2==posb2)
+	{
+	if(posa2==posb1)
+	{
+	posb1=0;
+	posb2=0;
+	bleft=2;
+	remtoken2="B1";
+	if(posa1!=-1&&posa1!=0)
+		{
+		    document.getElementById('L'+posa1).innerHTML="a1 ";
+		
+		}
+	
+	document.getElementById('L'+posa2).innerHTML="a2 ";
+	}
+	else{
+	posb2=0;
+	bleft=bleft+1;
+	if(bleft==2)
+	{
+	remtoken2="B1";}
+	if(bleft==1)
+	{
+	remtoken2="B2";
+	
+	}
+	if(posa1!=-1&&posa1!=0)
+		{
+		    document.getElementById('L'+posa1).innerHTML="a1 ";
+		
+		}
+		
+	document.getElementById('L'+posa2).innerHTML="a2 ";
+	
+	
+	}
+	
+	
+	}
+	else 
+	{
+		
+	 document.getElementById('L'+posa2).innerHTML="a2";
+	 
+	}
+	}
+	
+	  if((aout==1)&&(q!=6)&&(posb1!=posa2)&&(posb2!=posa2))
+	 { document.getElementById('L'+posa2).innerHTML="a2";
+	   change("A");
+	   changename("A");
+	   
+	 }
+	
+	}
+ 
+	 if(_player=="B"&&token=="B1")
+{
+ var max =6;
+ if((posb1>8)&&(posb1<15))
+  { max = 14- posb1;}
+ document.getElementById('L'+posb1).innerHTML="";
+   posb1=posb1+Number(q);
+ {if(posb1>28)
+ {
+ posb1=posb1-28;
+ }
+ }
+ 
+ if(bout==1&&q!=6)
+ {
+  change("B");
+  changename("B");
+  dieinput.value="";
+ 
+ 
+ }
+  
+ 
+ 
+  
+  
+  if(q <=max)
+  {
+    if(posb1==14)
+	{
+	 bout=bout+1;
+	 if(bout==2)
+	 {
+	 alert("B WINS");
+	 }
+	 bleft--;
+	 tokenbout="B1";
+	 posb1=-1;
+	  document.getElementById('L14').innerHTML=" ";
+	  if(posa1==14&&posa2==14)
+	  {
+	    aleft=2;
+		posa1=0;
+		posa2=0;
+		remtoken="A1";
+	  
+	  
+	  }
+	  if(posa1==14&&posb1!=14)
+	  {
+	  posa1=0;
+	  aleft++;
+	  remtoken="A1";
+	  }
+	  if(posa2==14&&posa1!=14)
+	  {
+	   posa2=0;
+	   aleft++;
+	   remtoken="A2";
+	   if(aleft==2)
+	   {
+	    remtoken="A1";
+	   }
+	   else
+	   {
+	   remtoken="A2";
+	   
+	   }
+	  
+	   }
+	   
+	  if(bleft==1)
+	  {
+	  bleft=1;
+	  }
+	  else
+	  {
+	  bleft=0;
+	  
+	  }
+	 
+	
+	
+	
+	}
+    
+   
+  if((posb1!=posb2)&&(posb1!=posa1)&&(posb1!=posa2)&&(posb2!=0)&&(posb1!=-1))
+	{
+	 document.getElementById('L'+posb1).innerHTML="b1 ";
+   document.getElementById('L'+posb2).innerHTML="b2 ";
+	}
+	
+	
+	else if(posb1 == posb2)
+   { 
+    bleft=0;
+   document.getElementById('L'+posb1).innerHTML="b1 , b2";
+   document.getElementById('L'+posb2).innerHTML="b1 , b2";
+   }
+   else if(posb1==posa1)
+   { 
+     if(posb1==posa2)
+	 {
+	 posa2=0;
+	 posa1=0;
+     aleft=2;
+     remtoken="A1";
+	 if((posb2!=0)&&(posb2!=-1))
+	 {
+	 document.getElementById('L'+posb2).innerHTML="b2 ";
+	 }
+     document.getElementById('L'+posb1).innerHTML="b1 ";
+	 }
+   
+     else{
+     posa1=0;
+     aleft=aleft+1;
+	 if(aleft==2)
+	 {
+     remtoken="A1";}
+	 else
+	 {
+	 remtoken="A1";
+	 }
+	 	 if((posb2!=0)&&(posb2!=-1))
+	 {
+	 document.getElementById('L'+posb2).innerHTML="b2 ";
+	 }
+     document.getElementById('L'+posb1).innerHTML="b1 ";
+ 
+                 }
+				 }
+				 
+	else if(posb1==posa2)
+	{
+	if(posb1==posa1)
+	{
+	posa1=0;
+	posa2=0;
+	aleft=2;
+	remtoken="A1";
+		 if((posb2!=0)&&(posb2!=-1))
+	 {
+	 document.getElementById('L'+posb2).innerHTML="b2 ";
+	 }
+	document.getElementById('L'+posb1).innerHTML="b1 ";
+	}
+	else{
+	posa2=0;
+	aleft=aleft+1;
+	if(aleft==2)
+	{
+	remtoken="A1";}
+	if(aleft==1)
+	{
+	remtoken="A2";
+	
+	}
+		 if((posb2!=0)&&(posb2!=-1))
+	 {
+	 document.getElementById('L'+posb2).innerHTML="b2 ";
+	 }
+	document.getElementById('L'+posb1).innerHTML="b1 ";
+	
+	
+	}
+	}
+  else
+ {
+ document.getElementById('L'+posb1).innerHTML="b1";
+ }
+ 
+ }
+ else
+ {   posb1 = posb1-q;
+   document.getElementById('L'+posb1).innerHTML="b1";
+   
+  
+ 
+ 
+ }
+ 
+ if((bout==1)&&(q!=6))
+	 { document.getElementById('L'+posb1).innerHTML="b1";
+	   change("B");
+	   changename("B");
+	   
+	 }
+ 
+ }
+ 
+ if(_player=="B"&&token=="B2")                                                  // move token of b2 starts //
+ {
+     var max =6;
+ document.getElementById('L'+posb2).innerHTML="";
+ 
+    if(posb2>8&&posb2<15)
+	{
+	 max = 14-posb2;
+	}
+  posb2=posb2+Number(q);
+    
+	{if(posb2>28)
+	{
+	 posb2=posb2-28;
+	
+	}
+	}
+	
+  if(q<=max)
+  {
+	
+	
+	if(posb2==14)
+	{
+	 bout=bout+1;
+	 if(bout==2)
+	 {
+	 alert("B WINS");
+	 }
+	 bleft--;
+	 tokenbout="B2";
+	 posb2=-1;
+	  document.getElementById('L14').innerHTML=" ";
+	  if(posa1==14&&posa2==14)
+	  {
+	    aleft=2;
+		posa1=0;
+		posa2=0;
+		remtoken="A1";
+	  
+	  
+	  }
+	  if(posa1==14&&posb1!=14)
+	  {
+	  posa1=0;
+	  aleft++;
+	  remtoken="A1";
+	  }
+	  if(posa2==14&&posa1!=14)
+	  {
+	   posa2=0;
+	   aleft++;
+	   remtoken="A2";
+	   if(aleft==2)
+	   {
+	    remtoken="A1";
+	   }
+	   else
+	   {
+	   remtoken="A2";
+	   
+	   }
+	  
+	   }
+	   
+	  if(bleft==1)
+	  {
+	  bleft=1;
+	  }
+	  else
+	  {
+	  bleft=0;
+	  
+	  }
+	 
+	
+	
+	
+	}
+	
+	  if((posb1!=posb2)&&(posb2!=posa1)&&(posb2!=posa2)&&(posb1!=0)&&(posb1!=-1))
+	{
+	 document.getElementById('L'+posb1).innerHTML="b1 ";
+   document.getElementById('L'+posb2).innerHTML="b2 ";
+	}
+ 
+   else if(posb1 == posb2)
+   { 
+    bleft=0;
+	
+   document.getElementById('L'+posb1).innerHTML="b1 , b2";
+   document.getElementById('L'+posb2).innerHTML="b1 , b2";
+   }
+   else if(posb2==posa1)
+   { 
+     if(posb2==posa2)
+	 {
+	 posa2=0;
+	 posa1=0;
+     aleft=2;
+     remtoken2="A1";
+	 if(posb1!=-1&&posb1!=0)
+	 {
+	  document.getElementById('L'+posb1).innerHTML="b1 "
+	 }
+	
+     document.getElementById('L'+posb2).innerHTML="b2 ";
+	 }
+   
+     else{
+     posa1=0;
+	 document.getElementById('L'+posb2).innerHTML="b2 ";
+     aleft=aleft+1;
+	 if(aleft==2)
+	 {
+     remtoken=="A1";}
+	 else
+	 {
+	 remtoken="A1";
+	 }
+     
+ 
+                 }
+				 }
+				 
+	else if(posb2==posa2)
+	{
+	if(posb2==posa1)
+	{
+	posa1=0;
+	posa2=0;
+	aleft=2;
+	remtoken="A1";
+	if(posb1!=-1&&posb1!=0)
+	 {
+	  document.getElementById('L'+posb1).innerHTML="b1 "
+	 }
+	document.getElementById('L'+posb2).innerHTML="b2 ";
+	}
+	else{
+	posa2=0;
+	aleft=aleft+1;
+	if(aleft==2)
+	{
+	remtoken="A1";}
+	else
+	{
+	remtoken="A2";
+	
+	}
+	if(posb1!=-1&&posb1!=0)
+	 {
+	  document.getElementById('L'+posb1).innerHTML="b1 "
+	 }
+	document.getElementById('L'+posb2).innerHTML="b2 ";
+	
+	
+	}
+	
+	
+	}
+	else 
+	{
+	 
+	 document.getElementById('L'+posb2).innerHTML="b2";
+	 
+	}
+ 
+ 
+}
+else
+{
+ 
+    posb2 = posb2-q;
+   document.getElementById('L'+posb2).innerHTML="b2";
+   
+  
+ 
+ 
+ 
+}
+if((bout==1)&&(q!=6))
+	 { document.getElementById('L'+posb2).innerHTML="b2";
+	   change("B");
+	   changename("B");
+	   
+	 }
+}
+}
+function release(_player,z) {
+    if(_player == "A") 
+	{
+        if(aleft == 2) {
+		 document.getElementById('L1').innerHTML = "a1";
+            aleft = 1;
+			posa1=1;
+			remtoken="A2";
+		
+		   if(posb1==1&&posb2==1)
+		   { bleft=2;
+		     posb1=0;
+			 posb2=0;
+			 remtoken2="B1";
+			 }
+			 if(posb1==1&&posb2!=posb1)
+			 {
+			  bleft=bleft+1;
+			  posb1=0;
+			  remtoken2="B1";
+			 
+			 }
+			 if(posb2==1&&posb1!=posb2)
+			 {
+			 posb2=0;
+			 bleft=bleft+1;
+			 if(bleft==2)
+			 {     remtoken2="B1";}
+			 else
+			 {           remtoken2="B2";        }
+			 
+			 
+			 
+			 }
+			 document.getElementById('p1').innerHTML=aleft;
+			 document.getElementById('p2').innerHTML=bleft
+		   
+		   
+		   
+		   }
+            
+        
+        
+        else if(aleft==1)
+		{
+		     if(posa1==0)
+		        {
+				document.getElementById('q5').style.display="block";
+			               if(d==2)
+			               { d=0;
+			                 
+			                document.getElementById('q5').style.display="none";
+							document.getElementById('q5in').value="";
+							movetoken("A","A2",z);
+						
+			                }
+			               else if(d==3)
+						       {
+		                        d=0;
+     		                    posa1=1;
+								if(posa2==posa1)
+                               { aleft=0;
+							    document.getElementById('p1').innerHTML=aleft;
+							   document.getElementById('L1').innerHTML = "a1,a2";}
+							   else if(posa1==posb1)
+							   {
+							   if(posa1==posb2)
+							   { bleft=2;
+							   posb1=0;
+							   posb2=0;
+							   remtoken2="B1";
+							   document.getElementById('L1').innerHTML = "a1";
+							   }
+							   else
+							   {posb1=0;
+							   bleft=bleft+1;
+							   remtoken2="B1";
+							   document.getElementById('L1').innerHTML = "a1";
+							   
+							   
+							   
+							   }
+							   
+							   
+							   }
+							   else if(posa1==posb2)
+							   
+							   {
+							     if(posa1==posb1)
+								 {
+								  bleft =2;
+								  posb1=0;
+							   posb2=0;
+							   remtoken2="B1";
+							   document.getElementById('L1').innerHTML = "a1";
+								 
+								 
+								 
+								 }
+								 else
+								 {
+								  posb2=0;
+								  bleft=bleft+1;
+								    document.getElementById('L1').innerHTML = "a1";
+									if(bleft==2)
+									{
+									 remtoken2="B1";
+									 
+									}
+									else
+									{
+									remtoken2="B1";
+									}
+									}
+									}
+								 
+								  
+								else
+								{document.getElementById('L1').innerHTML = "a1";}
+								
+                                aleft = 0;
+								document.getElementById('p1').innerHTML=aleft;
+				                document.getElementById('q5').style.display="none";
+								document.getElementById('q5in').value="";
+			                                                                         }
+																					 }
+				
+				
+				
+				
+				
+				
+			   
+		         else
+		         {
+		                 document.getElementById('q1').style.display="block";
+			               if(u==2)
+			               { u=0;
+			                 
+			                document.getElementById('q1').style.display="none";
+							document.getElementById('q1in').value="";
+							 movetoken("A","A1",z);
+						
+			                }
+			               else if(u==3)
+						       {
+		                        u=0;
+     		                    posa2=1;
+								if(posa2==posa1)
+                               { aleft=0;
+							    document.getElementById('p1').innerHTML=aleft;
+							   document.getElementById('L1').innerHTML = "a1,a2";}
+							   
+							     else if(posa2==posb1)
+								 {
+								   if(posa2==posb2)
+								   {
+								    bleft=2;
+									posb1=0;
+									posb2=0;
+									document.getElementById('L1').innerHTML = "a2";
+									remtoken2="B1";
+									
+								   }
+								   
+								   else
+								   {
+								    posb1=0;
+									bleft=bleft+1;
+									document.getElementById('L1').innerHTML = "a2";
+									remtoken2="B1";
+								   
+								   }
+								 
+								 
+								 }
+								 
+								 else if (posa2==posb2)
+								 {
+								 
+								 if(posa2==posb1)
+								 {
+								   bleft=2;
+									posb1=0;
+									posb2=0;
+									document.getElementById('L1').innerHTML = "a2";
+									remtoken2="B1";
+								 
+								 }
+								 
+								 else
+								 
+								 {
+								 posb2=0;
+								  bleft=bleft+1;
+								  document.getElementById('L1').innerHTML = "a2";
+								  if(bleft==2)
+								  {
+								  remtoken2="B1";
+								  }
+								  else{
+								   remtoken2="B2";
+								  
+								  }
+								 
+								 }
+								 
+								 }
+							    
+								else
+								{document.getElementById('L1').innerHTML = "a2";}
+								
+                                aleft = 0;
+								document.getElementById('p1').innerHTML=aleft;
+				                document.getElementById('q1').style.display="none";
+								document.getElementById('q1in').value="";
+			                                                                         }
+                      
+                					  }  
+					   
+			  
+			
+		
+		}
+		
+		else if(aleft==0)
+		{
+		  document.getElementById('q2').style.display="block";
+		   if(t==2)
+			               { t=0;
+			                
+			                document.getElementById('q2').style.display="none";
+							document.getElementById('q2in').value="";
+							movetoken("A","A1",z);
+			                }
+			               else if(t==3)
+						       {
+		                        t=0;   		             
+                                
+			                    document.getElementById('q2').style.display="none";
+								document.getElementById('q2in').value="";
+								movetoken("A","A2",z);
+				              
+		
+		
+		
+		
+		
+		
+    }
+}
+}	
+	
+    
+	
+	
+	
+	
+    else {
+        if(bleft == 2) 
+		{
+		   posb1=15;
+		   bleft=1;
+		   document.getElementById('p2').innerHTML=bleft;
+		   
+		   
+			if(posa1==15)
+			{
+			if(posa2==15)
+			{
+			bleft=1;
+			aleft=2;
+			posa1=0;
+			posa2=0;
+			remtoken="A1";
+			}
+			else{
+			aleft=aleft+1;
+			posa1=0;
+		    remtoken="A1";
+			}
+			}
+			if(posa2==posb1&&posa2!=posa1)
+			{
+			 aleft++;
+			 posa2=0;
+			 if(aleft==2)
+			 {
+			  remtoken="A1";
+			 }
+			 else
+			 {
+			  remtoken="A2";
+			 }
+			
+			}
+			remtoken2="B2";
+            document.getElementById('L15').innerHTML = "b1";
+					   document.getElementById('p2').innerHTML=bleft;
+			}
+			
+			
+			
+			
+			
+			
+        
+		        else if(bleft==1)
+		{
+		
+		    if(posb1==0)
+			{
+			document.getElementById('q6').style.display="block";
+					   document.getElementById('p2').innerHTML=bleft;
+			               if(k==2)
+			               { d=0;
+						    bleft=1;
+						   document.getElementById('q6').style.display="none";
+							document.getElementById('q6in').value="";
+			                 movetoken("B","B2",z);
+							 		   document.getElementById('p2').innerHTML=bleft;
+			                
+						
+			                }
+			               else if(k==3)
+						       {
+							    bleft=0;
+							    document.getElementById('p2').innerHTML=bleft;
+				                document.getElementById('q6').style.display="none";
+								document.getElementById('q6in').value="";
+										   document.getElementById('p2').innerHTML=bleft;
+		                        k=0;
+     		                    posb1=15;
+								if(posb2==posb1)
+                               { bleft=0;
+							    document.getElementById('p2').innerHTML=bleft;
+										   document.getElementById('p2').innerHTML=bleft;
+							   document.getElementById('L15').innerHTML = "b1,b2";}
+							  else if(posb1==posa2)
+							  {
+							    if(posb1==posa1)
+								{
+								
+								
+								
+								}
+								else
+								{
+							   posa2=0;
+							   posb1=15;
+							   aleft=aleft+1;
+							   document.getElementById('L15').innerHTML = "b1";
+							   		   document.getElementById('p2').innerHTML=bleft;
+							   if(aleft==2)
+							   {
+							   remtoken="A1";
+							   }
+							   else
+							   {
+							   remtoken="A2";
+							   		   document.getElementById('p2').innerHTML=bleft;
+							   
+							   }
+							   }
+							   }
+							     else if(posb1==posa1)
+							  {
+							    if(posb1==posa2)
+								{
+								 aleft=2;
+								 posa1=0;
+								 posa2=0;
+								 document.getElementById('L15').innerHTML = "b1";
+								 		   document.getElementById('p2').innerHTML=bleft;
+								remtoken="A1"
+								
+								
+								}
+								else
+								{
+							   posa1=0;
+							   posb1=15;
+							   aleft=aleft+1;
+							   document.getElementById('L'+posb1).innerHTML = "b1";
+							   if(aleft==2)
+							   {
+							   remtoken="A1";
+							   }
+							   else
+							   {
+							   remtoken="A1";
+							   
+							   }
+							   }
+							  
+							  }
+								else
+								{document.getElementById('L15').innerHTML = "b1";
+										   document.getElementById('p2').innerHTML=bleft;
+								  }
+								
+                              
+								           }
+			
+			
+			
+			}
+		
+		     
+		       else
+			    
+		        {
+		                 document.getElementById('q3').style.display="block";
+			               if(g==2)
+			               { g=0;
+			                 
+			                document.getElementById('q3').style.display="none";
+									   document.getElementById('p2').innerHTML=bleft;
+							document.getElementById('q3in').value="";
+							movetoken("B","B1",z);
+			                }
+			               else if(g==3)
+						       {
+							    bleft = 0;
+				                document.getElementById('q3').style.display="none";
+								document.getElementById('q3in').value="";
+										   document.getElementById('p2').innerHTML=bleft;
+		                        g=0;
+     		                    posb2=15;
+								if(posb2==posb1)
+								{
+                                document.getElementById('L15').innerHTML = "b1,b2";}
+								else if(posb2==posa1)
+								{
+								   if(posb2==posa2)
+								   {
+								   aleft=2;
+								   remtoken="A1";
+								   pos1=0;
+								   posa2=0;
+								   document.getElementById('L15').innerHTML = "b2"
+								   
+								   
+								   
+								   }
+								   else
+								   {
+								    aleft=aleft+1;
+									remtoken="A1";
+									posa1=0;
+									document.getElementById('L15').innerHTML = "b2"
+											   document.getElementById('p2').innerHTML=bleft;
+								   
+								   
+								   
+								   }
+								   }
+								else if(posb2==posa2)
+								{
+								   if(posb2==posa1)
+								   {
+								   aleft=2;
+								   remtoken="A1";
+								   pos1=0;
+								   posa2=0;
+								   document.getElementById('L15').innerHTML = "b2"
+								   
+								   
+								   
+								   }
+								   else
+								   {
+								    aleft=aleft+1;
+								
+									posa2=0;
+									document.getElementById('L15').innerHTML = "b2"
+								   if(aleft==2)
+								   {
+                                     remtoken="A1";
+								   
+								   
+								   }
+								   else
+								   remtoken="A2";
+								   }
+								
+								
+								
+								
+								
+								
+								}
+								else
+								{
+								 document.getElementById('L15').innerHTML = "b2";
+								}
+			                                                                         }
+                       }   
+			   
+		}
+		else if(bleft==0)
+		{
+		  document.getElementById('q4').style.display="block";
+		   if(h==2)
+			               { h=0;
+			               
+			                document.getElementById('q4').style.display="none";
+							document.getElementById('q4in').value="";
+							movetoken("B","B1",z);
+			                }
+			               else if(h==3)
+						       {
+		                        h=0;   		             
+                                
+			                    document.getElementById('q4').style.display="none";
+								document.getElementById('q4in').value="";
+								movetoken("B","B2",z);
+				              
+		
+		
+		
+		
+		
+		}
+    }
+}
+}	
+	
+        
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+function changename(_player) {
+    if (_player == "A") {
+        document.getElementById("b1").innerHTML = "Turn b";
+    }
+    
+    else {
+        document.getElementById("b1").innerHTML = "Turn a";
+    }
+}
+function change(_player) {
+    if(_player == "A") {
+        player = "B";
+    }
+    
+    else {
+        player = "A";
+    }
+}
+function roll() { document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+	
+                  
+     if(dieinput.value=="")
+	 {
+	  x  =  Math.floor(Math.random()*6+1);
+	    document.getElementById("demo").innerHTML =  x;
+	 }
+	 else
+    { x = dieinput.value;
+    document.getElementById("demo").innerHTML =  x;
+	}
+    if(player == "A")
+	{
+	 if(aout==1)
+	 {
+	    if((posa1==0||posa2==0)&&(x!=6))
+		{
+		 change("A");
+		 changename("A");
+		  dieinput.value="";
+		
+		
+		}
+	    if(tokenaout=="A1")
+		{  
+		
+		if(posa2==0&&x==6)
+		{
+		   posa2=1;
+		   
+		   if(posa2==posb1)
+		   {
+		     if(posa2==posb2)
+			 {
+			   bleft=2;
+			   posb1=0;
+			   posb2=0;
+			   remtoken2="B1";
+			     document.getElementById('L1').innerHTML="a2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			 
+			 }
+			 else
+			 {
+			   posb1=0;
+			   bleft=bleft+1;
+			   remtoken2="B1";
+			   document.getElementById('L1').innerHTML="a2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			 }
+			 }
+			 else if(posa2==posb2)
+			 {
+			  if(posa2==posb1)
+			  {
+			     bleft=2;
+			   posb1=0;
+			   posb2=0;
+			   remtoken2="B1";
+			     document.getElementById('L1').innerHTML="a2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			  }
+			  
+			  else
+			  {
+			   posb2=0;
+			   bleft=bleft+1;
+			     document.getElementById('L1').innerHTML="a2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			   if(bleft==2)
+			   {
+			   remtoken2="B1";
+			   
+			   }
+			   else
+			   {
+			   remtoken2="B2";
+			   
+			   }
+			  
+			  
+			  }
+			  }
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		   
+		   
+		   
+		   
+		     else 
+			 {
+		    posa2=1;
+			aleft=0;
+		   document.getElementById('L1').innerHTML="a2";
+		   dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+		}
+		 else
+		 {
+		 movetoken("A","A2",document.getElementById("demo").innerHTML/1);
+		dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;}
+				 
+		  
+		 }
+		 
+		 else if(tokenaout=="A2") 
+{  					 dieinput.value="";	 //  token a2 out of the board
+		 if(posa1==0&&x==6)
+		{
+		   posa1=1;
+		   
+		   if(posa1==posb1)
+		   {
+		     if(posa1==posb2)
+			 {
+			   bleft=2;
+			   posb1=0;
+			   posb2=0;
+			   remtoken2="B1";
+			     document.getElementById('L1').innerHTML="a1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			 
+			 }
+			 else
+			 {
+			   posb1=0;
+			   bleft=bleft+1;
+			   remtoken2="B1";
+			   document.getElementById('L1').innerHTML="a1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			 }
+			 }
+			 else if(posa1==posb2)
+			 {
+			  if(posa1==posb1)
+			  {
+			     bleft=2;
+			   posb1=0;
+			   posb2=0;
+			   remtoken2="B1";
+			     document.getElementById('L1').innerHTML="a1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			  }
+			  
+			  else
+			  {
+			   posb2=0;
+			   bleft=bleft+1;
+			     document.getElementById('L1').innerHTML="a1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			   if(bleft==2)
+			   {
+			   remtoken2="B1";
+			   
+			   }
+			   else
+			   {
+			   remtoken2="B2";
+			   
+			   }
+			  
+			  
+			  }
+			  }
+			 
+			   else 
+			 {
+		    posa1=1;
+			aleft=0;
+		   document.getElementById('L1').innerHTML="a1";
+		   dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+		}
+		 else
+		 {
+		 dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+		 movetoken("A","A1",document.getElementById("demo").innerHTML/1);
+		dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;}
+				 
+		  
+		 }
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		
+        
+		
+		
+		
+		else                   //  end of token a2 out of the board statements
+		{
+		
+        if(document.getElementById("demo").innerHTML  == "6") {
+            release("A",x);
+			dieinput.value="";
+			document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+			
+        }
+		
+		 
+		 
+		if(aleft==1&&(x!=6))
+		{
+		  
+		 if(remtoken=="A2")
+		 {
+		 
+		 change("A");
+		  changename("A");
+		  dieinput.value="";
+		  document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+		   movetoken("A","A1",x);
+		  }
+		  else
+		  {
+		  movetoken("A","A2",document.getElementById("demo").innerHTML/1);
+		 change("A");
+		  changename("A");
+		   dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+		  }
+		
+		 
+		}
+		if(aleft==0&&(document.getElementById("demo").innerHTML  != "6"))
+		{
+		 release("A",x);
+		 change("A");
+		 changename("A");
+		  dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+		 
+		}
+		if(document.getElementById("demo").innerHTML  != "6"){
+		change("A");
+		 changename("A");
+		  dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+		 }
+		 
+		 }
+		
+      
+    }
+	
+	//player b roll funtion//
+    else {
+	
+	
+	  if(bout==1)
+	 {
+	  if((posb1==0||posb2==0)&&(x!=6))
+		{
+		 change("B");
+		 changename("B");
+		  dieinput.value="";
+		
+		
+		}
+	    if(tokenbout=="B1")
+		{  
+		
+		if(posb2==0&&x==6)
+		{
+		   posb2=15;
+		   
+		   if(posb2==posa1)
+		   {
+		     if(posb2==posa2)
+			 {
+			   aleft=2;
+			   posa1=0;
+			   posa2=0;
+			   remtoken="A1";
+			     document.getElementById('L15').innerHTML="b2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			 
+			 }
+			 else
+			 {
+			   posa1=0;
+			   aleft=aleft+1;
+			   remtoken="A1";
+			   document.getElementById('L15').innerHTML="b2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			 }
+			 }
+			 else if(posb2==posa2)
+			 {
+			  if(posb2==posa1)
+			  {
+			     aleft=2;
+			   posa1=0;
+			   posa2=0;
+			   remtoken="A1";
+			     document.getElementById('L15').innerHTML="b2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			  }
+			  
+			  else
+			  {
+			   posa2=0;
+			   aleft=aleft+1;
+			     document.getElementById('L15').innerHTML="b2";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			   if(aleft==2)
+			   {
+			   remtoken="A1";
+			   
+			   }
+			   else
+			   {
+			   remtoken="A2";
+			   
+			   }
+			  
+			  
+			  }
+			  }
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		   
+		   
+		   
+		   
+		     else 
+			 {
+		    posb2=15;
+			bleft=0;
+		   document.getElementById('L15').innerHTML="b2";
+		   dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+		}
+		 else
+		 {
+		 movetoken("B","B2",document.getElementById("demo").innerHTML/1);
+		dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+				 
+				 
+				 
+				 }
+		else if(tokenbout=="B2")                // code when the token bout is b2//
+		{
+		if(posb1==0&&x==6)
+		{
+		   posb1=15;
+		   
+		   if(posb1==posa1)
+		   {
+		     if(posb1==posa2)
+			 {
+			   aleft=2;
+			   posa1=0;
+			   posa2=0;
+			   remtoken="A1";
+			     document.getElementById('L15').innerHTML="b1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			 
+			 }
+			 else
+			 {
+			   posa1=0;
+			   aleft=aleft+1;
+			   remtoken="A1";
+			   document.getElementById('L15').innerHTML="b1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			 }
+			 }
+			 else if(posb2==posa2)
+			 {
+			  if(posb2==posa1)
+			  {
+			     aleft=2;
+			   posa1=0;
+			   posa2=0;
+			   remtoken="A1";
+			     document.getElementById('L15').innerHTML="b1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			  }
+			  
+			  else
+			  {
+			   posa2=0;
+			   aleft=aleft+1;
+			     document.getElementById('L15').innerHTML="b1";
+				 document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 dieinput.value="";
+			   
+			   if(aleft==2)
+			   {
+			   remtoken="A1";
+			   
+			   }
+			   else
+			   {
+			   remtoken="A2";
+			   
+			   }
+			  
+			  
+			  }
+			  }
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		   
+		   
+		   
+		   
+		     else 
+			 {
+		    posb1=15;
+			bleft=0;
+		   document.getElementById('L15').innerHTML="b1";
+		   dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+		}
+		 else
+		 {
+		 movetoken("B","B1",document.getElementById("demo").innerHTML/1);
+		dieinput.value="";
+		   document.getElementById('p1').innerHTML=aleft;
+                 document.getElementById('p2').innerHTML=bleft;
+				 }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
+				 
+				
+				 
+		  
+		 
+		 }
+		 
+		 else
+		 {
+		 
+        
+        if(document.getElementById("demo").innerHTML  == "6") 
+		{
+            release("B",x);
+ dieinput.value="";
+        }
+        if((bleft==1&& x!= 6))
+		{
+		 if(remtoken2=="B2")
+		 {
+		 change("B");
+		  changename("B");
+		   dieinput.value="";
+		 movetoken("B","B1",document.getElementById("demo").innerHTML/1);
+		 
+		  }
+		  else
+		  {  
+		   change("B");
+		  changename("B");
+		   dieinput.value="";
+		   		 movetoken("B","B2",document.getElementById("demo").innerHTML/1);
+		  
+		
+		  }
+		}
+		if(bleft==0&&(document.getElementById("demo").innerHTML  != "6"))
+		{
+		release("B",x);
+		change("B");
+		 changename("B");
+		  dieinput.value="";
+	
+		 
+		}
+		if(document.getElementById("demo").innerHTML  != "6")
+		{
+		change("B");
+		 changename("B");
+		  dieinput.value="";}
+        
+    } 
+	}
+	
+	
+}
+</script>
+
+
+
+</html>
